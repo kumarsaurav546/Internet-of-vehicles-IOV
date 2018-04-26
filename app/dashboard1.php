@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
 	<title>VCIN</title>
-	<meta name="viewport" content="wth=device-wth, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
 <link href="../css/thin-admin.css" rel="stylesheet" media="screen">
@@ -40,14 +40,14 @@ session_start();
         z-index: 5;
         background-color: #fff;
         padding: 5px;
-        border: 1px sol #999;
+        border: 1px solid #999;
         text-align: center;
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
       }
       #warnings-panel {
-        wth: 100%;
+        width: 100%;
         height:10%;
         text-align: center;
       }
@@ -56,10 +56,10 @@ session_start();
 <body onload="myfun();">
 
 	<div class="container">
-  <div class="top-navbar header b-b"> <a data-original-title="Toggle navigation" class="toggle-se-nav pull-left" href="#"><i class="icon-reorder"></i> </a>
+  <div class="top-navbar header b-b"> <a data-original-title="Toggle navigation" class="toggle-side-nav pull-left" href="#"><i class="icon-reorder"></i> </a>
     <div class="brand pull-left"> <a href="index.html"><h2>VCIN<br> <small>Vehicular interconnected informatics network</small></h2></a></div>
-    <ul class="nav navbar-nav navbar-right  hden-xs">
-      <li class="dropdown user  hden-xs"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <i class="icon-male"></i> <span class="username" ="lx">
+    <ul class="nav navbar-nav navbar-right  hidden-xs">
+      <li class="dropdown user  hidden-xs"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <i class="icon-male"></i> <span class="username" id="lx">
       	<?php echo $_SESSION['user'];?>
       </span> <i class="icon-caret-down small"></i> </a>
         <ul class="dropdown-menu">
@@ -69,14 +69,14 @@ session_start();
       </li>
     </ul>
     <form class="pull-right" >
-      <!--<input type="search" placeholder="Search..." class="search" ="search-input">-->
+      <!--<input type="search" placeholder="Search..." class="search" id="search-input">-->
     </form>
   </div>
 </div>
 <div class="wrapper">
   <div class="left-nav">
-    <div ="se-nav">
-      <ul ="nav">
+    <div id="side-nav">
+      <ul id="nav">
         <li class="current"> <a> <i class="icon-dashboard"></i> Dashboard </a></li>
         <li> <a href="#" onclick="map();"> <i class="icon-gps"></i> Map <span class="label label-info pull-right"></span> <i class="arrow icon-angle-left"></i></a>
           <ul class="sub-menu">
@@ -85,14 +85,14 @@ session_start();
             <li> <a href="tabs.html"> <i class="icon-angle-right"></i> Tabs</a> </li>
             <li> <a href="accordions.html"> <i class="icon-angle-right"></i> Accordions </a> </li>
             <li> <a href="nestable.html"> <i class="icon-angle-right"></i> Nestable List </a> </li>
-            <li> <a href="gr.html"> <i class="icon-angle-right"></i> Gr </a> </li>
+            <li> <a href="grid.html"> <i class="icon-angle-right"></i> Grid </a> </li>
             <li> <a href="dialogs.html"> <i class="icon-angle-right"></i> Dialogs </a> </li>
           </ul>
         </li>
         <li> <a href="#"> <i class="icon-edit"></i><span class="label label-info pull-right"></span> <i class="arrow icon-angle-left"></i></a>
           <ul class="sub-menu">
             <li> <a href="form_elements.html"> <i class="icon-angle-right"></i> Form Elements </a> </li>
-            <li> <a href="form_valation.html"> <i class="icon-angle-right"></i> Form Valation</a> </li>
+            <li> <a href="form_validation.html"> <i class="icon-angle-right"></i> Form Validation</a> </li>
             <li> <a href="form_masks.html"> <i class="icon-angle-right"></i> Form Masks </a> </li>
             <li> <a href="wizard.html"> <i class="icon-angle-right"></i> Form Wizard </a> </li>
             <li> <a href="multipleFile_upload.html"> <i class="icon-angle-right"></i> Multiple File Upload </a> </li>
@@ -128,20 +128,20 @@ session_start();
   </div>
 
   <div class="page-content" >
-  	<div ="mapdis" style="display:none;">
+  	<div id="mapdis" style="display:none;">
 	<?php include('map.php');?>
     </div>
 
-    <div class="content container" ="pagecontent">
+    <div class="content container" id="pagecontent">
 
       <div class="row">
         <div class="col-lg-12">
           <h2 class="page-title">Dashboard <small>Statistics and more</small></h2>
         </div>
-        <div ="msec" style="display:none;">
+        <div id="msec" style="display:none;">
         	<center><h2>Send Message</h2></center>
         	<br>
-        	<input class="form-control input-lg" type="text" name="message" ="mssg" style="wth:100%;">
+        	<input class="form-control input-lg" type="text" name="message" id="mssg" style="width:100%;">
         	<center><br>
 			<button class="btn btn-primary " type="submit" onclick="sendmssg();">Send Message</button>
 			</center>        	
@@ -154,7 +154,7 @@ session_start();
             <div class="col-md-3 col-xs-12 col-sm-6"> <a href="#" class="stats-container">
               <div class="stats-heading">Users/Registered</div>
               <div class="stats-body-alt"> 
-              	<center><span ="user_count"></span></center>
+              	<center><span id="user_count"></span></center>
                
                  <div class="text-center">
                  
@@ -167,8 +167,8 @@ session_start();
               <div class="stats-body-alt"> 
                
                 <div class="text-center">
-                	<h5>No of vehicles in next month : <span ="y1"> </span></h5>
-                	<h5>No of Users in next month : <span ="y2"> </span></h5>
+                	<h5>No of vehicles in next month : <span id="y1"> </span></h5>
+                	<h5>No of Users in next month : <span id="y2"> </span></h5>
                 </div>
                  </div>
               <div class="stats-footer"></div>
@@ -177,7 +177,7 @@ session_start();
               <div class="stats-heading">Gps Result</div>
               <div class="stats-body-alt"> 
                
-                <div class="text-center"><span class="text-top"></span><h2 ="gpsre"></h2></div>
+                <div class="text-center"><span class="text-top"></span><h2 id="gpsre"></h2></div>
                 <small>new user registered</small> </div>
               <div class="stats-footer"></div>
               </a> </div>
@@ -186,7 +186,7 @@ session_start();
               <div class="stats-body-alt"> 
              
                 <div class="text-center">
-                	<span ="loc" class="h5"></span></div>
+                	<span id="loc" class="h5"></span></div>
                </div>
               <div class="stats-footer"></div>
               </a> </div>
@@ -195,44 +195,44 @@ session_start();
       </div>
       <div class="row">
         <div class="col-lg-6">
-          <div class="wget">
-            <div class="wget-header"> <i class="icon-bookmark"></i>
+          <div class="widget">
+            <div class="widget-header"> <i class="icon-bookmark"></i>
               <h3>Important Shortcuts</h3>
             </div>
-            <!-- /wget-header -->
-            <div class="wget-content">
+            <!-- /widget-header -->
+            <div class="widget-content">
               <div class="shortcuts"> 
               	<a class="shortcut" href="javascript:;" onclick="send_mssg();"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">
               		<br>
               		<button class="btn btn-danger btn-sm" type="submit" >Send Message</button>
               	</span> </a>
               	<a class="shortcut" href="javascript:;">
-              	 <i class=""></i><span class="h5">Safe zone status :<h3 ="area" style="color:green"> <b ="sst"></b></h3></span>
+              	 <i class=""></i><span class="h5">Safe zone status :<h3 id="area" style="color:green"> <b id="sst"></b></h3></span>
                 </a>
                 <a class="shortcut" href="javascript:;">
-              	 <i class=""></i><span class="h5">Gyrometric Value(per second):<h3 ="gyval" style="color:green"> <b class="h4" ="gyv"></b></h3></span>
+              	 <i class=""></i><span class="h5">Gyrometric Value(per second):<h3 id="gyval" style="color:green"> <b class="h4" id="gyv"></b></h3></span>
                 </a>
                 <a class="shortcut" href="javascript:;">
-              	 <i class=""></i><span class="h5">Obstacle Status (per movement):<h3 ="gyval" style="color:red"> <b class="h4" ="irv"></b></h3></span>
+              	 <i class=""></i><span class="h5">Obstacle Status (per movement):<h3 id="gyval" style="color:red"> <b class="h4" id="irv"></b></h3></span>
                 </a>
               </div>
               <!-- /shortcuts --> 
             </div>
-            <!-- /wget-content --> 
+            <!-- /widget-content --> 
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="wget-container">
+          <div class="widget-container">
             <div class="padded"> <a href="#" class="pull-right"><i class="icon-map-marker"></i></a> <span class="h4"><?php echo $_SESSION['user'];?></span>
               <div class="text-center padder m-t"><br> <span class="h3"> 
               	<label>Vehicle No : </label>
-              	<span ="veh_no"></span><br>
+              	<span id="veh_no"></span><br>
               	<label>Aadhaar No : </label>
-              	<span ="Aadhaar_no"></span><br>
+              	<span id="Aadhaar_no"></span><br>
               	<label>Time of Registration : </label>
-              	<span ="tyy"></span><br>
+              	<span id="tyy"></span><br>
               	<label>Date of Registration : </label>
-              	<span ="dtt"></span>
+              	<span id="dtt"></span>
               </span><br><br><br> </div>
             </div>
           </div>
@@ -249,7 +249,7 @@ session_start();
       <div class="panel-body chart-texture">
         <div class="chart">
           <div class="heading"> <strong>Temprature variation of particular user vehicle</strong> </div><br>
-          <div class="sparkline" data-type="line" data-resize="true" data-height="90" data-wth="90%" data-line-wth="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[2,135,667,333,526,996,564,123,890,564,455]"></div>
+          <div class="sparkline" data-type="line" data-resize="true" data-height="90" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[2,135,667,333,526,996,564,123,890,564,455]"></div>
         </div>
       </div>
     </div>
@@ -261,7 +261,7 @@ session_start();
       <div class="panel-body">
         <div class="chart">
           <div class="heading"><strong>Gyrometric value</strong> </div>
-          <div ="barchart"></div>
+          <div id="barchart"></div>
         </div>
       </div>
 
@@ -273,8 +273,8 @@ session_start();
     <div class="panel">
       <div class="panel-body text-center">
         <div class="chart" style="height: 110px;">
-          <p class="h3">Humity : <span ="hum"></span></p>
-          <p class="h3">Temperature : <span ="temp"></span></p>
+          <p class="h3">Humidity : <span id="hum"></span></p>
+          <p class="h3">Temperature : <span id="temp"></span></p>
         </div>
       </div>
     </div>
@@ -294,7 +294,7 @@ session_start();
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="../js/jquery.js"></script> 
 <script src="../js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/smooth-sling-menu.js"></script> 
+<script type="text/javascript" src="js/smooth-sliding-menu.js"></script> 
 <script class="include" type="text/javascript" src="../javascript/jquery191.min.js"></script> 
 <script class="include" type="text/javascript" src="../javascript/jquery.jqplot.min.js"></script> 
 <script src="../assets/sparkline/jquery.sparkline.js" type="text/javascript"></script>
@@ -332,7 +332,7 @@ session_start();
 
 
 
-<p ="u"><?php echo $_SESSION['user'];?></p>
+<p id="uid"><?php echo $_SESSION['user'];?></p>
 
 
 </body >
@@ -345,9 +345,9 @@ session_start();
     apiKey: "AIzaSyCDV6IF8Ba59a62TQe2bjR2Rb4yPq4DHnQ",
     authDomain: "users-bb5bb.firebaseapp.com",
     databaseURL: "https://users-bb5bb.firebaseio.com",
-    project: "users-bb5bb",
+    projectId: "users-bb5bb",
     storageBucket: "users-bb5bb.appspot.com",
-    messagingSender: "728652246062"
+    messagingSenderId: "728652246062"
   };
   firebase.initializeApp(config);
 
@@ -365,8 +365,8 @@ session_start();
 			
 				count++;
 
-			document.getElementBy('user_count').innerHTML = count;
-			var name = document.getElementBy('u').innerHTML;
+			document.getElementById('user_count').innerHTML = count;
+			var name = document.getElementById('uid').innerHTML;
 			var email = snap.child('email').val();
 			if(name==email)
 			{
@@ -374,10 +374,10 @@ session_start();
 				var ano =snap.child('Aadhaar_card_no').val();
 				var dt =snap.child('Date').val();
 				var ty =snap.child('Time').val();
-				document.getElementBy('veh_no').innerHTML=vno;
-				document.getElementBy('Aadhaar_no').innerHTML=ano;
-				document.getElementBy('tyy').innerHTML=ty;
-				document.getElementBy('dtt').innerHTML=dt;
+				document.getElementById('veh_no').innerHTML=vno;
+				document.getElementById('Aadhaar_no').innerHTML=ano;
+				document.getElementById('tyy').innerHTML=ty;
+				document.getElementById('dtt').innerHTML=dt;
 
 			}
 	    });
@@ -396,7 +396,7 @@ session_start();
   }
 
   //LOCATIONS.
-		var x = document.getElementBy("loc");
+		var x = document.getElementById("loc");
 		function getLocation() {
 		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(showPosition);
@@ -418,8 +418,8 @@ function loc()
 			var u = snap.child('user').val();
 			var v = snap.child('vehicle').val();
 		
-			document.getElementBy("y1").innerHTML = u ;
-			document.getElementBy("y2").innerHTML = v;
+			document.getElementById("y1").innerHTML = u ;
+			document.getElementById("y2").innerHTML = v;
 		});
 		
 }
@@ -438,7 +438,7 @@ function getirsensorvalue()
 		{
 			st="Clear"; 
 		}
-		document.getElementBy("irv").innerHTML=st;
+		document.getElementById("irv").innerHTML=st;
 	});
 }
 
@@ -450,13 +450,13 @@ function getgysensorvalue()
 		var st;
 		if(val==1)
 		{
-			st="Accent encountered";
+			st="Accident encountered";
 		}
 		else
 		{
 			st="Driving safely"; 
 		}
-		document.getElementBy("gyv").innerHTML=st;
+		document.getElementById("gyv").innerHTML=st;
 
 	});
 }
@@ -473,9 +473,9 @@ var rootRef = firebase.database().ref().child('safe status');
 		}
 		else
 		{
-			st="In accent prone areas"; 
+			st="In accident prone areas"; 
 		}
-		document.getElementBy("sst").innerHTML=st;
+		document.getElementById("sst").innerHTML=st;
 
 	});
 }
@@ -487,57 +487,57 @@ function dv()
 }
 function khb()
 {
-  var x=document.getElementBy("sst").innerHTML;
-    if(x=="In accent prone areas")
+  var x=document.getElementById("sst").innerHTML;
+    if(x=="In accident prone areas")
     {
-     document.getElementBy("sst").innerHTML="Safe";
+     document.getElementById("sst").innerHTML="Safe";
     }
     else
     {
-      document.getElementBy("sst").innerHTML="In accent prone areas";
+      document.getElementById("sst").innerHTML="In accident prone areas";
     }
 }
 function khbx()
 {
-  var x=document.getElementBy("gyv").innerHTML;
+  var x=document.getElementById("gyv").innerHTML;
     if(x=="Driving safely")
     {
-     document.getElementBy("gyv").innerHTML="In accent prone areas";
+     document.getElementById("gyv").innerHTML="In accident prone areas";
     }
     else
     {
-      document.getElementBy("gyv").innerHTML="Driving safely";
+      document.getElementById("gyv").innerHTML="Driving safely";
     }
 }
 function khbxr()
 {
-  var x=document.getElementBy("irv").innerHTML;
+  var x=document.getElementById("irv").innerHTML;
     if(x=="Clear")
     {
-     document.getElementBy("irv").innerHTML="Obstacle Ahead";
+     document.getElementById("irv").innerHTML="Obstacle Ahead";
     }
     else
     {
-      document.getElementBy("irv").innerHTML="Clear";
+      document.getElementById("irv").innerHTML="Clear";
     }
 }
 
   function send_mssg()
   {
-  	if(document.getElementBy('msec').style.display=='block')
+  	if(document.getElementById('msec').style.display=='block')
   	{
-  		document.getElementBy('msec').style.display = 'none';
+  		document.getElementById('msec').style.display = 'none';
   	}
   	else
   	{
-  		document.getElementBy('msec').style.display='block';
+  		document.getElementById('msec').style.display='block';
   	}
   }
 
   function sendmssg()
   {
-  	var m = document.getElementBy('mssg').value;
-  	var u = document.getElementBy('u').innerHTML;
+  	var m = document.getElementById('mssg').value;
+  	var u = document.getElementById('uid').innerHTML;
   	
 
   	var rootRef = firebase.database().ref();
@@ -567,14 +567,14 @@ function khbxr()
   	rootRef.on('value',function(snap){
   		var d=snap.val();
   		c++;
-  		document.getElementBy("gpsre").innerHTML=c;
+  		document.getElementById("gpsre").innerHTML=c;
   	});
   }
 
   function getstatus()
   {
-  	var s =document.getElementBy('status').innerHTML;
-  	var mail = document.getElementBy('u').innerHTML;
+  	var s =document.getElementById('status').innerHTML;
+  	var mail = document.getElementById('uid').innerHTML;
   	var rootRef = firebase.database().ref().child("online status");
   	rootRef.child('mail').push({
   		status :s,
@@ -587,8 +587,8 @@ function khbxr()
   	rootRef.on('child_added',function(snap){
   		var hum = snap.child("0").val();
   		var temp = snap.child("1").val();
-  		document.getElementBy("hum").innerHTML=hum;
-  		document.getElementBy("temp").innerHTML=temp;
+  		document.getElementById("hum").innerHTML=hum;
+  		document.getElementById("temp").innerHTML=temp;
   	});
 
   }
@@ -600,7 +600,7 @@ function khbxr()
 		rootRef.on("child_added",snap =>
 		{
 			var d= snap.val();  
-			var name = document.getElementBy('u').innerHTML;
+			var name = document.getElementById('uid').innerHTML;
 			var email = snap.child('email').val();
 			if(name==email)
 			{
@@ -615,5 +615,5 @@ function khbxr()
   }
 
 </script>
-<h6 ="status"><?php echo $_SESSION['status']?></h6>
+<h6 id="status"><?php echo $_SESSION['status']?></h6>
 <button onclick="dv();">clcik</button>
